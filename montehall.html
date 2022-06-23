@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="./css/mh.css">
+    <meta charset="utf-8"/>
+    <!-- tell ie to use latest rendering engine. I'd rather it just f'd itself-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- set viewport to the size of the device -->
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+	  <title>3 doors, one twist</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="./script/mh.js" ></script>
+  </head>
+
+  <body>
+    <br>
+    <div class="container">
+      <div class="row">
+
+        <div class="page-header">
+          <h2>The 'Monte Hall' Problem</h2>
+        </div>
+
+      </div> <!-- row -->
+      <hr>
+      <div class="row">
+        There are three doors. Behind one is a prize. Choose. After you choose, Monte will show you what is behind one of the remaining. He will always choose an empty door. At this point you may keep your choice or switch.
+      </div> <!-- pics -->
+
+      <hr><br>
+
+    <div id="body" class="container">
+      <div class="row">
+      <div class="col-md-10 col-sm-12" >
+        <div class="card-group mx-md-5">
+          <div id="imageDiv1" class="card px-md-5"  >
+            <img src="./pics/browndoor.jpg" class="card-img-top" alt="..."
+              id="imgDoorOne" onclick="doorSelect('titleOne')" width: 200px>
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                <label id="titleOne" >One</label>
+              </h5>
+            </div>
+          </div>
+
+          <div class="card px-md-5" >
+            <img src="./pics/browndoor.jpg" class="card-img-top" alt="..."
+              id="imgDoorTwo" onclick="doorSelect('titleTwo')" >
+            <div class="card-body text-center">
+              <h5 class="card-title"><label id="titleTwo" >Two</label></h5>
+            </div>
+          </div>
+
+          <div class="card px-md-5" >
+            <img src="./pics/browndoor.jpg" class="card-img-top" alt="..." 
+              id="imgDoorThree" onclick="doorSelect('titleThree')" >
+            <div class="card-body text-center">
+              <h5 class="card-title"><label id="titleThree" >Three</label></h5>
+            </div>
+          </div>
+
+        </div> <!-- card-group -->
+      </div>  <!-- class=content -->
+
+      <div class="col-md-2">
+
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Total Plays
+            <span id="plays" class="badge badge-primary badge-pill">0</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Total Wins
+            <span id="win" class="badge badge-primary badge-pill">0</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Total Losses
+            <span id="lose" class="badge badge-primary badge-pill">0</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            score
+            <span id="score" class="badge badge-primary badge-pill">0</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            switch wins
+            <span id="pctSwitch" class="badge badge-primary badge-pill">0</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            stay wins
+            <span id="pctStay" class="badge badge-primary badge-pill">0</span>
+          </li>
+        </ul>
+
+        <br>
+        <button type="button" class="btn btn-success" onclick="totalReset('again')">Play Again!</button>
+        <br><br><br>
+        <button type="button" class="btn btn-warning" onclick="totalReset('reset')">Total Reset</button>
+      </div>  <!-- Right side content -->
+    </div>  <!-- row with door jpgs -->
+    </div>  <!-- body container -->
+
+      <div>
+        <h4><p class="text-center font-weight-bold" id="conversation" >
+          Select a door. After you pick, Monte will show you an empty door.</p></h4>
+      </div>
+      <hr>
+      Instructions:<br>
+      Select a door. Next, 'Monte' will reveal a door where there is no prize.<br>
+      Now. The tricky part. <b>Choose a strategy and keep using that strategy.</b><br>
+      Stick with your original selection. Win 1 out of 3 tries.<br>
+      OR... Switch to the 3rd door. Win 2 out of 3 games.<br>
+      why? <br>
+
+    </div> <!-- container -->
+
+    <div class="hiddentext" style="display: none;" id="button0">none</div>
+    <div class="hiddentext" style="display: none;" id="button1">none</div>
+    <div class="hiddentext" style="display: none;" id="button2">none</div>
+    <div class="hiddentext" style="display: none;" id="button3">none</div>
+
+    <!-- new stuff from bootstrap 2/19 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+
+</html>
+
